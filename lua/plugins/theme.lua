@@ -1,10 +1,11 @@
 return {
   {
-    'Mofiqul/vscode.nvim',
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd "colo vscode"
-    end
-  },
+      vim.cmd "colo tokyonight-night"
+    end,
+    opts = {},
+  }
 }

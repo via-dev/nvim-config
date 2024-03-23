@@ -55,6 +55,7 @@ local cmp_format = require("lsp-zero").cmp_format({ details = true })
 
 cmp.setup({
   sources = {
+    { name = "codeium" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
   },
