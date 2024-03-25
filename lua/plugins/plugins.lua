@@ -1,18 +1,8 @@
 return {
-  { 'bhurlow/vim-parinfer' },
-  { 'windwp/nvim-autopairs',   opts = {} },
-  { 'lewis6991/gitsigns.nvim', opts = {} },
-  { 'tpope/vim-fugitive' },
-  { 'folke/neodev.nvim',       opts = {} },
-  { 'fatih/vim-go' },
-  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
-  {
-    'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
-    },
-    lazy = false,
-  },
+  { "bhurlow/vim-parinfer" },
+  { "lewis6991/gitsigns.nvim", opts = {} },
+  { "tpope/vim-fugitive" },
+  { "folke/neodev.nvim",       opts = {} },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -20,7 +10,7 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
+    },
   },
   {
     "folke/twilight.nvim",
@@ -28,15 +18,16 @@ return {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
+    },
   },
   {
-    "folke/zen-mode.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
+    "Pocco81/true-zen.nvim",
+    config = function()
+      require("true-zen").setup({
+        -- your config goes here
+        -- or just leave it empty :)
+      })
+    end,
   },
   {
     "Exafunction/codeium.nvim",
@@ -45,8 +36,7 @@ return {
       "hrsh7th/nvim-cmp",
     },
     config = function()
-      require("codeium").setup({
-      })
-    end
+      require("codeium").setup({})
+    end,
   },
 }

@@ -1,11 +1,17 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
+    'projekt0n/github-nvim-theme',
+    lazy = false,  -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      vim.cmd "colo tokyonight-night"
+      require('github-theme').setup({
+        -- ...
+      })
+
+      vim.cmd('colorscheme github_dark_high_contrast')
     end,
-    opts = {},
-  }
+  },
+
+  { 'HiPhish/rainbow-delimiters.nvim', },
+  {'NvChad/nvim-colorizer.lua', opts = {}},
 }

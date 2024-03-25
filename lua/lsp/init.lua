@@ -12,23 +12,24 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 lsp_zero.set_sign_icons({
-  error = '✘',
-  warn = '▲',
-  hint = '⚑',
-  info = '»'
+  error = "✘",
+  warn = "▲",
+  hint = "⚑",
+  info = "»",
 })
 
 local mylsps = {
-  'gopls',
-  'nim_langserver',
-  'clangd',
-  'lua_ls',
-  'html', 'cssls',
-  'powershell_es',
+  "gopls",
+  "nim_langserver",
+  "clangd",
+  "lua_ls",
+  "html",
+  "cssls",
+  "powershell_es",
 }
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
+require("mason").setup({})
+require("mason-lspconfig").setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
   ensure_installed = mylsps,
@@ -36,7 +37,13 @@ require('mason-lspconfig').setup({
     lsp_zero.default_setup,
   },
 })
+require('go').setup {
+  lsp_cfg = false
+  -- other setups...
+}
+local cfg = require 'go.lsp'.config() -- config() return the go.nvim gopls setup
 
+require('lspconfig').gopls.setup(cfg)
 -- (Optional) configure lua language server
 local lua_opts = lsp_zero.nvim_lua_ls()
 require("lspconfig").lua_ls.setup(lua_opts)
@@ -55,13 +62,13 @@ local cmp_format = require("lsp-zero").cmp_format({ details = true })
 
 cmp.setup({
   sources = {
-    { name = "codeium" },
     { name = "luasnip" },
+    { name = "codeium" },
     { name = "nvim_lsp" },
   },
   mapping = cmp.mapping.preset.insert({
     -- `Enter` key to confirm completion
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
 
     -- Ctrl+Space to trigger completion menu
     ["<C-Space>"] = cmp.mapping.complete(),
@@ -75,6 +82,9 @@ cmp.setup({
   }),
   --- (Optional) Show source name in completion menu
   formatting = cmp_format,
+  experimental = {
+    ghost_text = true,
+  },
 })
 
 require("luasnip.loaders.from_vscode").lazy_load()

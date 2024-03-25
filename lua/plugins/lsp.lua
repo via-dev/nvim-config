@@ -25,6 +25,7 @@ return {
       },
     },
   },
-  { 'williamboman/mason.nvim' },
-  { 'williamboman/mason-lspconfig.nvim' },
+  -- Mason
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
 }
