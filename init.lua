@@ -21,14 +21,14 @@ vim.o.linebreak = true
 vim.o.clipboard = "unnamedplus"
 
 vim.o.showmode = false
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.list = true
-vim.opt.listchars = { tab = ". ", trail = "~", nbsp = "␣" }
+vim.opt.listchars = { tab = ". ", trail = "#", nbsp = "␣" }
 vim.o.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "-", "<CMD>lua MiniFiles.open()<CR>", { desc = "Open file browser" })
+vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open file browser" })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local uv = vim.uv or vim.loop

@@ -37,13 +37,7 @@ require("mason-lspconfig").setup({
     lsp_zero.default_setup,
   },
 })
-require('go').setup {
-  lsp_cfg = false
-  -- other setups...
-}
-local cfg = require 'go.lsp'.config() -- config() return the go.nvim gopls setup
 
-require('lspconfig').gopls.setup(cfg)
 -- (Optional) configure lua language server
 local lua_opts = lsp_zero.nvim_lua_ls()
 require("lspconfig").lua_ls.setup(lua_opts)
@@ -63,27 +57,25 @@ local cmp_format = require("lsp-zero").cmp_format({ details = true })
 cmp.setup({
   sources = {
     { name = "luasnip" },
-    { name = "codeium" },
     { name = "nvim_lsp" },
   },
   mapping = cmp.mapping.preset.insert({
-    -- `Enter` key to confirm completion
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-
-    -- Ctrl+Space to trigger completion menu
-    ["<C-Space>"] = cmp.mapping.complete(),
-
-    ["<C-f>"] = cmp_action.luasnip_jump_forward(),
-    ["<C-b>"] = cmp_action.luasnip_jump_backward(),
-
-    -- Scroll up and down in the completion documentation
-    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-d>"] = cmp.mapping.scroll_docs(4),
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
   }),
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
   --- (Optional) Show source name in completion menu
   formatting = cmp_format,
   experimental = {
     ghost_text = true,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
 })
 

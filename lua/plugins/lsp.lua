@@ -28,4 +28,12 @@ return {
   -- Mason
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
+  {
+    'kosayoda/nvim-lightbulb',
+    config = function()
+      require("nvim-lightbulb").setup({
+        autocmd = { enabled = true }
+      })
+    end,
+  },
 }
