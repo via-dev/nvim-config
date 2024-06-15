@@ -28,7 +28,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = ". ", trail = "#", nbsp = "␣" }
 vim.o.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open file browser" })
+vim.keymap.set("n", "<C-n>", "<CMD>lua MiniFiles.open()<CR>", { desc = "Open file browser" })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local uv = vim.uv or vim.loop

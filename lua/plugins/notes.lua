@@ -1,7 +1,12 @@
 return {
-  { "junegunn/goyo.vim" },
+  {
+    "junegunn/goyo.vim",
+    ft = { "org", "markdown", },
+  },
   {
     'jakewvincent/mkdnflow.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    ft = { "markdown" },
     config = function()
       -- ** DEFAULT SETTINGS; TO USE THESE, PASS NO ARGUMENTS TO THE SETUP FUNCTION **
       require('mkdnflow').setup({
@@ -17,7 +22,7 @@ return {
           paths = true,
           tables = true,
           yaml = false,
-          cmp = true
+          cmp = false
         },
         filetypes = { md = true, rmd = true, markdown = true },
         create_dirs = true,

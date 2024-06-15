@@ -13,4 +13,5 @@ return {
   },
 
   { 'HiPhish/rainbow-delimiters.nvim', },
+  { "bhurlow/vim-parinfer" },
 }

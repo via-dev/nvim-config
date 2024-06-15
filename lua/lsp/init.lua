@@ -58,6 +58,8 @@ cmp.setup({
   sources = {
     { name = "luasnip" },
     { name = "nvim_lsp" },
+    { name = 'mkdnflow' },
+    { name = 'path' },
   },
   mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = cmp_action.luasnip_supertab(),
