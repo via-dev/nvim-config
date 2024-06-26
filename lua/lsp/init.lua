@@ -11,14 +11,18 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.buffer_autoformat()
 end)
 
+vim.cmd [[au BufWrite * lua MiniTrailspace.trim_last_lines()]]
+
 lsp_zero.set_sign_icons({
-  error = "✘",
-  warn = "▲",
-  hint = "⚑",
-  info = "»",
+  error = "E",
+  warn = "W",
+  hint = "H",
+  info = "I",
 })
 
 local mylsps = {
+  "zls",
+  "emmet_language_server",
   "gopls",
   "nim_langserver",
   "clangd",
@@ -72,9 +76,6 @@ cmp.setup({
   },
   --- (Optional) Show source name in completion menu
   formatting = cmp_format,
-  experimental = {
-    ghost_text = true,
-  },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),

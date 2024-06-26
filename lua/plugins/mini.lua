@@ -7,7 +7,7 @@ return {
       require('mini.comment').setup()
       require('mini.diff').setup({
         view = {
-          style = 'sign',
+          style = 'number',
           signs = { add = '+', change = '~', delete = '-' },
         }
       })
@@ -35,7 +35,7 @@ return {
       require('mini.pick').setup()
       require('mini.sessions').setup()
       require('mini.starter').setup()
-      require('mini.statusline').setup()
+      require('mini.statusline').setup({ use_icons = false })
       require('mini.tabline').setup()
       require('mini.trailspace').setup()
     end

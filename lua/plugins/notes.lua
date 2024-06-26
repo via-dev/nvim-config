@@ -1,7 +1,8 @@
 return {
   {
-    "junegunn/goyo.vim",
+    "folke/zen-mode.nvim",
     ft = { "org", "markdown", },
+    opts = {},
   },
   {
     'jakewvincent/mkdnflow.nvim',
