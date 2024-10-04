@@ -1,7 +1,22 @@
 return {
   {
+    "habamax/vim-asciidoctor",
+    config = function()
+      vim.cmd [[
+      let g:asciidoctor_syntax_conceal = 1
+      let g:asciidoctor_fenced_languages = ['go','odin','python','lua']
+      ]]
+    end
+  },
+  {
+    "http://ratfactor.com/repos/vviki/vviki.git",
+    config = function()
+      vim.cmd [[ let g:vviki_visual_link_creation = 1 ]]
+    end
+  },
+  {
     "folke/zen-mode.nvim",
-    ft = { "org", "markdown", },
+    ft = { "org", "markdown", "asciidoc", },
     opts = {},
   },
   {
